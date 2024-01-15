@@ -1,0 +1,44 @@
+Form Validation using javascript on client side
+
+1)I have simply given different id's to email, contact, password and confirm password as:
+email-> emailID
+contact-> phone
+password-> pass
+confirm password-> cpass
+
+2)I made variables in script.js file as email, contact, password, cpassword and introduced values of the fields using document.getElementByID("provide id name here").value
+
+3)I made a function named as data() and i have written some conditions for validating form.
+
+Condition 1: for all fields are not kept as blank if blank then error message should come.
+if(email=="" || contact=="" || password=="" || cpassword==""){
+alert("all fields are mandatory");
+return false;
+}
+
+here we have return false because when i will click on submit button keeping all fields blank still the form will redirect me to next page which tells your data is submitted. So for this if condition is false we write return false so that above situation doesnt happens.
+
+finally in else we write true;
+so when condtion is met true it will redirect to next page else not.
+
+Condition 2: for contact number
+else if(contact.length<10 || contact.length>10){
+alert("number should be of 10 digits only! Please enter valid number");
+return false;
+}
+
+Condition 3: With number any alphabet or char get entered by user
+else if(isNAN(contact)){
+alert("only numbers are allowed");
+return false;
+}
+
+Condition 4: validating password and confirm password
+else if(password !== cpassword){
+alert("enter same password");
+return false;
+}
+
+4)Now to execute all these validations. Write in form in index.html document as:
+<form onsubmit= "return data()" action="submit.html">
+We have written "return data()"because it must match with the script written in js.
